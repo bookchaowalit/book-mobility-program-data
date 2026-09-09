@@ -1,0 +1,22 @@
+{
+  "id": "cost-eu-resolve-conference-grants",
+  "product": "book-mobility-program-data",
+  "domain": "mobility-program",
+  "schema_version": "mobility_program.v1",
+  "fetch_url": "https://www.cost.eu/cost-events/euresolve-stsm-conference-grants-2026/",
+  "source_url": "https://www.cost.eu/cost-events/euresolve-stsm-conference-grants-2026/",
+  "access": "html",
+  "content_type": "text/html",
+  "category": "conference-support",
+  "title": "EU-RESOLVE Conference Grants 2026",
+  "provider": "COST Association / EU-RESOLVE",
+  "cost_notes": "The call describes conference and travel grants under a COST Action; award amount, selection and eligible expenses must be checked in the current call documents.",
+  "enabled": true,
+  "permission_status": "reviewed-public-read",
+  "reviewed_at": "2026-09-08",
+  "permission_evidence": "https://www.cost.eu/robots.txt",
+  "owner": "bookchaowalit",
+  "min_interval_seconds": 21600,
+  "retention": "private local raw archive; operational retention; no automatic deletion",
+  "use": "public mobility-program metadata for personal discovery; no source-body republication"
+}

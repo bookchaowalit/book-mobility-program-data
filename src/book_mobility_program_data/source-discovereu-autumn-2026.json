@@ -1,0 +1,20 @@
+{
+  "id": "discovereu-autumn-2026",
+  "product": "book-mobility-program-data",
+  "domain": "mobility-program",
+  "schema_version": "mobility_program.v1",
+  "fetch_url": "https://youth.europa.eu/discovereu/rules_en",
+  "source_url": "https://youth.europa.eu/discovereu/rules_en",
+  "access": "html",
+  "content_type": "text/html",
+  "category": "travel-grant",
+  "provider": "European Commission / EACEA",
+  "enabled": true,
+  "permission_status": "reviewed-public-read",
+  "reviewed_at": "2026-09-07",
+  "permission_evidence": "https://youth.europa.eu/discovereu/rules_en",
+  "owner": "bookchaowalit",
+  "min_interval_seconds": 21600,
+  "retention": "private local raw archive; operational retention; no automatic deletion",
+  "use": "public mobility-program metadata for personal discovery; no source-body republication"
+}

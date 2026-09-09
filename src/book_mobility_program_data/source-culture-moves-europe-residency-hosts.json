@@ -1,0 +1,22 @@
+{
+  "id": "culture-moves-europe-residency-hosts",
+  "product": "book-mobility-program-data",
+  "domain": "mobility-program",
+  "schema_version": "mobility_program.v1",
+  "fetch_url": "https://culture.ec.europa.eu/culture-moves-europe/call-for-residency-hosts",
+  "source_url": "https://culture.ec.europa.eu/culture-moves-europe/call-for-residency-hosts",
+  "access": "html",
+  "content_type": "text/html",
+  "category": "artist-residency",
+  "title": "Culture Moves Europe residency hosts",
+  "provider": "European Commission / Culture Moves Europe",
+  "cost_notes": "The call describes financial support for selected residency hosts; project, phase, co-funding and hosting costs are call-specific.",
+  "enabled": true,
+  "permission_status": "reviewed-public-read",
+  "reviewed_at": "2026-09-08",
+  "permission_evidence": "https://culture.ec.europa.eu/robots.txt",
+  "owner": "bookchaowalit",
+  "min_interval_seconds": 21600,
+  "retention": "private local raw archive; operational retention; no automatic deletion",
+  "use": "public mobility-program metadata for personal discovery; no source-body republication"
+}

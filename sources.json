@@ -1,0 +1,26 @@
+{
+  "domain": "mobility-program",
+  "enabled_sources": [
+    "discovereu-autumn-2026",
+    "erasmus-youth-exchanges",
+    "cost-eu-resolve-conference-grants",
+    "culture-moves-europe-residency-hosts",
+    "european-solidarity-corps-volunteering"
+  ],
+  "enabled_category_capabilities": [
+    "travel-grant",
+    "exchange",
+    "conference-support",
+    "artist-residency",
+    "volunteer-exchange"
+  ],
+  "candidate_source_classes": [
+    "official program API or export",
+    "official RSS or announcement feed",
+    "official public program page"
+  ],
+  "permission_status": "reviewed-public-read",
+  "network_enabled": true,
+  "policy_file": "src/book_mobility_program_data/source.json",
+  "notes": "Five manually invoked official sources are enabled with a six-hour minimum interval. Verify each current call before relying on availability, ranking or travel details."
+}
