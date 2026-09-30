@@ -6,7 +6,9 @@ import sys
 from html.parser import HTMLParser
 from pathlib import Path
 
-from .cli import resource, validate
+from .cli import resource, timestamp, validate
+
+DISCOVEREU_DEADLINE = "2026-10-15T12:00:00+02:00"
 
 
 class Text(HTMLParser):
@@ -113,16 +115,18 @@ def normalize(raw, source, checked_at):
         raise ValueError("mobility source drift or challenge page")
 
     if source["id"] == "discovereu-autumn-2026":
+        # The call closes at a fixed time; a later capture must not re-emit it as open.
+        closed = timestamp(checked_at) >= timestamp(DISCOVEREU_DEADLINE)
         item = {
         "id": source["id"],
         "title": "DiscoverEU autumn 2026 travel pass",
         "category": source["category"],
         "source_url": source["source_url"],
         "provider": source["provider"],
-        "status": "open",
+        "status": "closed" if closed else "open",
         "deadline": {
             "kind": "fixed",
-            "at": "2026-10-15T12:00:00+02:00",
+            "at": DISCOVEREU_DEADLINE,
         },
         "eligible_countries": EUROPEAN_YOUTH_COUNTRIES,
         "eligibility_text": (
