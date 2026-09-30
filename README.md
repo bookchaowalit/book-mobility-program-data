@@ -91,7 +91,9 @@ through 15 October 2026 at 12:00 Brussels time. It describes travel passes for
 seven train days in a chosen period of up to 30 days between 1 March 2027 and
 31 May 2028, plus a DiscoverEU discount card. The record stays conservative:
 selection is not guaranteed, visa support is unknown, and participants still
-need to plan accommodation, subsistence and basic insurance.
+need to plan accommodation, subsistence and basic insurance. The record is `open` only from
+the opening time until the deadline; captures before 1 October 2026 12:00 or at/after
+15 October 2026 12:00 Brussels time report `closed`.
 
 Run with the existing data-lake Python environment:
 

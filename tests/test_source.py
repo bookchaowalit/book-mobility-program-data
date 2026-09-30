@@ -17,7 +17,7 @@ class SourceTests(unittest.TestCase):
 
     def test_discovereu_source_fixture(self):
         source = resource("source.json")
-        data = normalize(self.raw(), source, "2026-09-07T00:00:00Z")
+        data = normalize(self.raw(), source, "2026-10-07T00:00:00Z")
         item = data["items"][0]
         item["provenance"].update(
             raw_object_key="landing/test",
@@ -37,6 +37,16 @@ class SourceTests(unittest.TestCase):
         self.assertEqual(before["status"], "open")
         self.assertEqual(after["status"], "closed")
         self.assertEqual(after["deadline"], {"kind": "fixed", "at": "2026-10-15T12:00:00+02:00"})
+
+    def test_discovereu_is_not_open_before_applications_open(self):
+        source = resource("source.json")
+        early = normalize(self.raw(), source, "2026-09-07T00:00:00Z")["items"][0]
+        before = normalize(self.raw(), source, "2026-10-01T09:59:59Z")["items"][0]
+        opened = normalize(self.raw(), source, "2026-10-01T10:00:00Z")["items"][0]
+        self.assertEqual(early["status"], "closed")
+        self.assertEqual(before["status"], "closed")
+        self.assertEqual(opened["status"], "open")
+        self.assertEqual(early["deadline"], {"kind": "fixed", "at": "2026-10-15T12:00:00+02:00"})
 
     def test_source_drift_rejected(self):
         with self.assertRaises(ValueError):
