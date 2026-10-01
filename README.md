@@ -35,6 +35,20 @@ book-mobility-program-data validate src/book_mobility_program_data/demo.json
 python -m unittest discover -s tests -v
 ```
 
+Developer checks (the same commands CI runs in `.github/workflows/ci.yml` on
+Python 3.10 and 3.12, plus a `contract`/`validate`/`demo` CLI smoke):
+
+```bash
+python -m pip install -e ".[dev]"
+ruff check .
+python -m pytest -q
+```
+
+All tests are offline: source adapters are exercised with inline fixtures, the
+capture entry point is only checked for its fail-closed guard, and no test needs
+the shared Solo Empire runtime or network access. `tests/test_policy.py` keeps
+`sources.json`, every `source*.json` policy and the bundled schema consistent.
+
 With dependencies already available, use `PYTHONPATH=src python3 -m book_mobility_program_data`.
 `demo` uses the fixed synthetic clock 2026-09-07T00:00:00Z unless `--as-of` is
 provided. `--open-only` excludes closed, unknown-deadline, expired, stale (72h
@@ -77,7 +91,9 @@ through 15 October 2026 at 12:00 Brussels time. It describes travel passes for
 seven train days in a chosen period of up to 30 days between 1 March 2027 and
 31 May 2028, plus a DiscoverEU discount card. The record stays conservative:
 selection is not guaranteed, visa support is unknown, and participants still
-need to plan accommodation, subsistence and basic insurance.
+need to plan accommodation, subsistence and basic insurance. The record is `open` only from
+the opening time until the deadline; captures before 1 October 2026 12:00 or at/after
+15 October 2026 12:00 Brussels time report `closed`.
 
 Run with the existing data-lake Python environment:
 
