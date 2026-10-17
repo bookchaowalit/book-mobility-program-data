@@ -1,4 +1,5 @@
 """Capture the official DiscoverEU call rules through the shared lake runtime."""
+
 import argparse
 import os
 import re
@@ -34,10 +35,39 @@ class Text(HTMLParser):
 
 
 EUROPEAN_YOUTH_COUNTRIES = [
-    "AT", "BE", "BG", "HR", "CY", "CZ", "DK", "EE", "FI", "FR",
-    "DE", "EL", "HU", "IE", "IT", "LV", "LT", "LU", "MT", "NL",
-    "PL", "PT", "RO", "SK", "SI", "ES", "SE", "IS", "LI", "MK",
-    "NO", "RS", "TR",
+    "AT",
+    "BE",
+    "BG",
+    "HR",
+    "CY",
+    "CZ",
+    "DK",
+    "EE",
+    "FI",
+    "FR",
+    "DE",
+    "EL",
+    "HU",
+    "IE",
+    "IT",
+    "LV",
+    "LT",
+    "LU",
+    "MT",
+    "NL",
+    "PL",
+    "PT",
+    "RO",
+    "SK",
+    "SI",
+    "ES",
+    "SE",
+    "IS",
+    "LI",
+    "MK",
+    "NO",
+    "RS",
+    "TR",
 ]
 
 
@@ -122,59 +152,59 @@ def normalize(raw, source, checked_at):
         observed = timestamp(checked_at)
         closed = not (timestamp(DISCOVEREU_OPENS) <= observed < timestamp(DISCOVEREU_DEADLINE))
         item = {
-        "id": source["id"],
-        "title": "DiscoverEU autumn 2026 travel pass",
-        "category": source["category"],
-        "source_url": source["source_url"],
-        "provider": source["provider"],
-        "status": "closed" if closed else "open",
-        "deadline": {
-            "kind": "fixed",
-            "at": DISCOVEREU_DEADLINE,
-        },
-        "eligible_countries": EUROPEAN_YOUTH_COUNTRIES,
-        "eligibility_text": (
-            "Applicants must be 18 during 2026 and citizens or residents of an "
-            "EU Member State, an EU-associated overseas territory, or an "
-            "Erasmus+ associated country. A valid identity, passport or residence "
-            "permit document is required by the official application; no identity "
-            "number is stored here."
-        ),
-        "value": {
-            "kind": "access",
-            "amount": None,
-            "currency": None,
-            "guaranteed": False,
-        },
-        "cost": {
-            "fee_amount": None,
-            "currency": None,
-            "auto_renewal": None,
-            "notes": (
-                "The call describes a travel pass and discount card; participants "
-                "must plan accommodation, subsistence and basic insurance costs. "
-                "No application-fee claim is inferred."
+            "id": source["id"],
+            "title": "DiscoverEU autumn 2026 travel pass",
+            "category": source["category"],
+            "source_url": source["source_url"],
+            "provider": source["provider"],
+            "status": "closed" if closed else "open",
+            "deadline": {
+                "kind": "fixed",
+                "at": DISCOVEREU_DEADLINE,
+            },
+            "eligible_countries": EUROPEAN_YOUTH_COUNTRIES,
+            "eligibility_text": (
+                "Applicants must be 18 during 2026 and citizens or residents of an "
+                "EU Member State, an EU-associated overseas territory, or an "
+                "Erasmus+ associated country. A valid identity, passport or residence "
+                "permit document is required by the official application; no identity "
+                "number is stored here."
             ),
-        },
-        "terms": {
-            "destination_country": "MULTI",
-            "travel_start": "2027-03-01",
-            "coverage": (
-                "A successful participant receives a travel pass for seven train "
-                "days during a chosen period of up to 30 days between 1 March 2027 "
-                "and 31 May 2028, plus a DiscoverEU discount card."
-            ),
-            "visa_support": "unknown",
-        },
-        "related_records": [],
-        "provenance": {
-            "evidence_kind": "captured",
-            "source_id": source["id"],
-            "source_record_id": source["id"],
-            "checked_at": checked_at,
-            "raw_object_key": None,
-            "bronze_manifest_key": None,
-        },
+            "value": {
+                "kind": "access",
+                "amount": None,
+                "currency": None,
+                "guaranteed": False,
+            },
+            "cost": {
+                "fee_amount": None,
+                "currency": None,
+                "auto_renewal": None,
+                "notes": (
+                    "The call describes a travel pass and discount card; participants "
+                    "must plan accommodation, subsistence and basic insurance costs. "
+                    "No application-fee claim is inferred."
+                ),
+            },
+            "terms": {
+                "destination_country": "MULTI",
+                "travel_start": "2027-03-01",
+                "coverage": (
+                    "A successful participant receives a travel pass for seven train "
+                    "days during a chosen period of up to 30 days between 1 March 2027 "
+                    "and 31 May 2028, plus a DiscoverEU discount card."
+                ),
+                "visa_support": "unknown",
+            },
+            "related_records": [],
+            "provenance": {
+                "evidence_kind": "captured",
+                "source_id": source["id"],
+                "source_record_id": source["id"],
+                "checked_at": checked_at,
+                "raw_object_key": None,
+                "bronze_manifest_key": None,
+            },
         }
     else:
         metadata = GENERIC_SOURCES[source["id"]]
