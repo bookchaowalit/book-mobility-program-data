@@ -77,4 +77,5 @@ class SourceTests(unittest.TestCase):
                 self.assertEqual(validate(data)["schema_version"], "mobility_program.v1")
 
 
-if __name__ == "__main__": unittest.main()
+if __name__ == "__main__":
+    unittest.main()
